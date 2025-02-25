@@ -1,6 +1,6 @@
 task: forecasting
 dataset: ETTh1
-model: Linear
+model: PTN
 config_path: configs
 log_path: logs/
 figs_path: figs/

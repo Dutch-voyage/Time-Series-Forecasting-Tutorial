@@ -10,7 +10,7 @@ class Model(nn.Module):
         self.num_channels = num_channels
         self.linear = nn.Linear(input_len, output_len)
 
-    def forward(self, x, y, x_mark, y_mark):
+    def forward(self, x, y, x_mark, y_mark, **kwargs):
         x_means = x.mean(dim=-1, keepdim=True)
         x_stds = x.std(dim=-1, keepdim=True) + 1e-5
         x = (x - x_means) / x_stds
@@ -19,6 +19,7 @@ class Model(nn.Module):
 
         result = {}
         result['y_hat'] = y_hat
-        result['loss'] = F.mse_loss(y_hat, y)
+        result['predloss'] = F.l1_loss(y_hat, y)
+        result['loss'] = result['predloss'].mean()
         return result
 

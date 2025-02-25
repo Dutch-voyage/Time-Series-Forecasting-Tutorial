@@ -1,0 +1,27 @@
+name: PTN
+task: forecasting
+conv_layers: 3
+attn_layers: 2
+norm_type: LayerNorm
+d_model: 128
+patch_len: 16
+amp_factor: 4
+type: conv
+embedding_type: conv
+aux_model: Linear
+with_ch: false
+with_tem: true
+num_heads: 4
+if_apply_rope: false
+causal_mask: false
+res_attn: false
+sync:
+  n_channels: 7
+  input_len: 96
+  output_len: 96
+  batch_size: 32
+  device: cuda:1
+  seed: 1234
+  if_sample: false
+  sample_size: 64
+  cycle: 168
