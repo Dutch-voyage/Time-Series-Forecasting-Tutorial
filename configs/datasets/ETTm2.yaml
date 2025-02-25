@@ -1,0 +1,16 @@
+root_dir: ../Datasets/
+task: forecasting
+name:
+- ETTm2
+sync:
+  n_channels: 7
+  batch_size: 64
+  input_len: 96
+  output_len: 96
+  device: cuda:3
+  seed: 1234
+train_ratio: 0.6
+val_ratio: 0.2
+test_ratio: 0.2
+pred_type: m2m
+scale: true

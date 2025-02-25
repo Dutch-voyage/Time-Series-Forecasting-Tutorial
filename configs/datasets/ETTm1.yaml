@@ -1,0 +1,19 @@
+root_dir: ../Datasets/
+task: forecasting
+name:
+- ETTm1
+sync:
+  n_channels: 862
+  input_len: 96
+  output_len: 96
+  batch_size: 32
+  device: cuda:0
+  seed: 1234
+  if_sample: false
+  sample_size: 64
+  cycle: 168
+train_ratio: 0.6
+val_ratio: 0.2
+test_ratio: 0.2
+pred_type: m2m
+scale: true

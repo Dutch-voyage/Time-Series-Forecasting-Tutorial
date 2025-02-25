@@ -1,0 +1,18 @@
+name: forecasting
+sync:
+  n_channels: 7
+  input_len: 96
+  output_len: 96
+  batch_size: 32
+  device: cuda:1
+  seed: 1234
+  if_sample: false
+  sample_size: 64
+  cycle: 168
+eval_pred_len: 12
+eval_list: []
+param_list:
+- biRec_multi_v2
+- biRec_multi_v5
+intrain_list:
+- biRec_multi

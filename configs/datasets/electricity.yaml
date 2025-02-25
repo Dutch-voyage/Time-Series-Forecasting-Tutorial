@@ -1,0 +1,19 @@
+root_dir: ../Datasets/
+task: forecasting
+name:
+- electricity
+sync:
+  n_channels: 321
+  input_len: 96
+  output_len: 96
+  batch_size: 32
+  device: cuda:1
+  seed: 1234
+  if_sample: true
+  sample_size: 64
+  cycle: 168
+train_ratio: 0.7
+val_ratio: 0.1
+test_ratio: 0.2
+pred_type: m2m
+scale: true

@@ -1,0 +1,11 @@
+root_dir: ../Datasets/
+task: forecasting
+name:
+- PEMS04
+sync:
+  n_channels: 307
+train_ratio: 0.6
+val_ratio: 0.2
+test_ratio: 0.2
+pred_type: m2m
+scale: true
