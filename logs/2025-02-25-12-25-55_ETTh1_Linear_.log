@@ -1,0 +1,45 @@
+{'task': {'name': 'forecasting', 'sync': {'n_channels': 7, 'input_len': 96, 'output_len': 96, 'batch_size': 32, 'device': 'cuda:0', 'seed': 1234, 'if_sample': False, 'sample_size': 64, 'cycle': 168}, 'eval_pred_len': 12, 'eval_list': [], 'param_list': ['biRec_multi_v2', 'biRec_multi_v5'], 'intrain_list': ['biRec_multi']}, 'dataset': {'root_dir': '../Datasets/', 'task': 'forecasting', 'name': ['ETTh1'], 'sync': {'n_channels': 7, 'input_len': 96, 'output_len': 96, 'batch_size': 32, 'device': 'cuda:0', 'seed': 1234, 'if_sample': False, 'sample_size': 64, 'cycle': 168}, 'train_ratio': 0.6, 'val_ratio': 0.2, 'test_ratio': 0.2, 'pred_type': 'm2m', 'scale': False}, 'model': {'name': 'Linear', 'task': 'forecasting', 'sync': {'n_channels': 7, 'input_len': 96, 'output_len': 96, 'batch_size': 32, 'device': 'cuda:0', 'seed': 1234, 'if_sample': False, 'sample_size': 64, 'cycle': 168}}, 'config_path': 'configs', 'log_path': 'logs/', 'figs_path': 'figs/', 'ckpts_path': 'ckpts/', 'resume': False, 'epochs': 100, 'learning_rate': 0.001, 'sync': {'n_channels': 7, 'input_len': 96, 'output_len': 96, 'batch_size': 32, 'device': 'cuda:0', 'seed': 1234, 'if_sample': False, 'sample_size': 64, 'cycle': 168}}
+{'name': 'Linear', 'task': 'forecasting', 'sync': {'n_channels': 7, 'input_len': 96, 'output_len': 96, 'batch_size': 32, 'device': 'cuda:0', 'seed': 1234, 'if_sample': False, 'sample_size': 64, 'cycle': 168}}
+{'root_dir': '../Datasets/', 'task': 'forecasting', 'name': ['ETTh1'], 'sync': {'n_channels': 7, 'input_len': 96, 'output_len': 96, 'batch_size': 32, 'device': 'cuda:0', 'seed': 1234, 'if_sample': False, 'sample_size': 64, 'cycle': 168}, 'train_ratio': 0.6, 'val_ratio': 0.2, 'test_ratio': 0.2, 'pred_type': 'm2m', 'scale': False}
+Epoch: 1 
+On Valid Set, MAE:0.5545622706413269, MSE:0.712300717830658, MAPE:651.0234985351562
+On Test Set, MAE:0.4022637605667114, MSE:0.39924314618110657, MAPE:1005.56689453125
+best model saved
+Epoch: 2 
+On Valid Set, MAE:0.5507187247276306, MSE:0.7114641070365906, MAPE:633.6437377929688
+On Test Set, MAE:0.3926750123500824, MSE:0.3892478048801422, MAPE:982.74609375
+best model saved
+Epoch: 3 
+On Valid Set, MAE:0.5485469698905945, MSE:0.7082276940345764, MAPE:627.0303955078125
+On Test Set, MAE:0.3898056447505951, MSE:0.38555586338043213, MAPE:983.354736328125
+best model saved
+Epoch: 4 
+On Valid Set, MAE:0.5448387265205383, MSE:0.7007471323013306, MAPE:632.4681396484375
+On Test Set, MAE:0.3900623023509979, MSE:0.3883226215839386, MAPE:975.5581665039062
+best model saved
+Epoch: 5 
+On Valid Set, MAE:0.5454528331756592, MSE:0.7027126550674438, MAPE:623.0499877929688
+On Test Set, MAE:0.38856393098831177, MSE:0.38439738750457764, MAPE:973.5653076171875
+Epoch: 6 
+On Valid Set, MAE:0.5448251962661743, MSE:0.7011796832084656, MAPE:626.3723754882812
+On Test Set, MAE:0.38848814368247986, MSE:0.38471299409866333, MAPE:971.9920043945312
+Epoch: 7 
+On Valid Set, MAE:0.5432288646697998, MSE:0.6978577971458435, MAPE:626.7822875976562
+On Test Set, MAE:0.38810479640960693, MSE:0.38428398966789246, MAPE:968.0986328125
+best model saved
+Epoch: 8 
+On Valid Set, MAE:0.5451782941818237, MSE:0.7013367414474487, MAPE:623.87451171875
+On Test Set, MAE:0.38803139328956604, MSE:0.38424837589263916, MAPE:977.6082763671875
+Epoch: 9 
+On Valid Set, MAE:0.5442056655883789, MSE:0.69987553358078, MAPE:630.0420532226562
+On Test Set, MAE:0.38801077008247375, MSE:0.3856053352355957, MAPE:976.7415161132812
+Epoch: 10 
+On Valid Set, MAE:0.5444459319114685, MSE:0.7016206383705139, MAPE:626.6319580078125
+On Test Set, MAE:0.3876747488975525, MSE:0.3848364055156708, MAPE:972.0194702148438
+Epoch: 11 
+On Valid Set, MAE:0.5451744794845581, MSE:0.7022947669029236, MAPE:627.9609375
+On Test Set, MAE:0.38771069049835205, MSE:0.3847323954105377, MAPE:980.3125610351562
+Epoch: 12 
+On Valid Set, MAE:0.5466302633285522, MSE:0.7053076028823853, MAPE:624.5684814453125
+On Test Set, MAE:0.3863198757171631, MSE:0.38138607144355774, MAPE:975.052734375
+Epoch: 13 

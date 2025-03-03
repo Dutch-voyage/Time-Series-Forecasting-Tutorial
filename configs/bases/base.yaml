@@ -1,6 +1,6 @@
 task: forecasting
 dataset: ETTh1
-model: PTN
+model: Linear
 config_path: configs
 log_path: logs/
 figs_path: figs/
@@ -13,7 +13,7 @@ sync:
   input_len: 96
   output_len: 96
   batch_size: 32
-  device: cuda:1
+  device: cuda:0
   seed: 1234
   if_sample: false
   sample_size: 64

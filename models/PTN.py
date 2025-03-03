@@ -28,6 +28,8 @@ class Model(nn.Module):
                                         patch_len=configs.patch_len, 
                                         amp_factor=configs.amp_factor, 
                                         type=configs.type)
+        
+        # [B, C, L] -> [B, C, L, D]
         attn = Attn_Block(d_model=configs.d_model, 
                           num_heads=configs.num_heads, 
                           norm_type=configs.norm_type, 
@@ -42,10 +44,14 @@ class Model(nn.Module):
                                patch_len=configs.patch_len, 
                                with_ch=configs.with_ch, 
                                with_tem=configs.with_tem)
+        
+        # [B, C, l, D] -> [B, C, l, D]
+
         self.decoder = Decoder(embedding_type=configs.embedding_type, 
                                num_channels=num_channels, 
                                d_model=configs.d_model, 
                                patch_len=configs.patch_len)
+        
         aux_model_args_path = os.path.join('configs/models', configs.aux_model + '.yaml')
         aux_model_configs = read_cfg(aux_model_args_path)
         self.aux_model = model_dict[configs.aux_model](input_len=input_len, output_len=output_len, num_channels=num_channels, configs=aux_model_configs)
@@ -56,6 +62,7 @@ class Model(nn.Module):
         x_emb = self.embedding(x)
         x_enc = self.encoder(x_emb)
         x_rec = self.decoder(x_enc)
+
         y_emb = self.embedding(y)
         y_enc = self.encoder(y_emb)
         y_rec = self.decoder(y_enc)
@@ -63,11 +70,16 @@ class Model(nn.Module):
         map_result = self.mapper(x_rec, y)
         y_hat = map_result['y_hat']
         result['y_hat'] = y_hat
+
+        '''
         res_rec = y_rec - y
         res_pred = y_hat - y_rec
         norm_loss = F.mse_loss(F.tanh(res_rec), F.tanh(res_pred))
+        '''
+
+        # F.mse_loss(y_hat, y_rec)
         result['predloss'] = map_result['predloss']  # + map_result_stu['predloss']
-        result['normloss'] = torch.zeros_like(norm_loss)
+        # result['normloss'] = torch.zeros_like(norm_loss)
         result['recloss'] = F.l1_loss(x_rec, x, reduction='none').mean(-1) + F.l1_loss(y_rec, y, reduction='none').mean(-1)
         result['loss'] = result['predloss'].mean() + result['normloss'].mean() + result['recloss'].mean()
         return result

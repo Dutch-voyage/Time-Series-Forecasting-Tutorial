@@ -20,6 +20,7 @@ class Patch_Embedding(nn.Module):
         x_emb = self.embedding(x)
         return x_emb
 
+# [B, C, L] -> [B, C, D]
 class Conv_Embedding(nn.Module):
     def __init__(self,
                  conv_layers: int,
@@ -36,7 +37,7 @@ class Conv_Embedding(nn.Module):
         self.norms = nn.ModuleList([])
         self.activation = nn.GELU()
         for _ in range(conv_layers):
-            conv = nn.Conv1d(now_channel * amp_factor, now_channel * 2 * amp_factor, kernel_size=3, stride=2, padding=1) # , groups=now_channel)
+            conv = nn.Conv1d(now_channel * amp_factor, now_channel * 2 * amp_factor, kernel_size=3, stride=2, padding=1) # TODO L = L // 2
             self.convs.append(conv)
             self.norms.append(nn.InstanceNorm1d(now_channel * amp_factor))
             now_channel *= 2

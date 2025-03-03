@@ -31,6 +31,7 @@ def data_provider(args, flag='train', para=False):
     shuffle = True if flag == 'train' else False
     batch_size = args.sync.batch_size
     dataset = CustomDataset(args, flag)
+    
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, drop_last=False)
 
     return dataset, dataloader

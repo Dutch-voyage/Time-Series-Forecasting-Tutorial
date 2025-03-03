@@ -33,6 +33,8 @@ class Encoder(nn.Module):
         x_emb = rearrange(x_emb, 'b c l d-> (b c) l d')
         if self.with_tem:
             if self.embedding_type == 'patch':
+                # x_emb = x_emb.permute(0, 2, 1, 3)
+                # x_emb = x_emb.reshape(-1, x_emb.shape[2], x_emb.shape[3])
                 x_emb = rearrange(x_emb, 'b c l d-> (b l) c d')
             elif self.embedding_type == 'conv':
                 x_enc_tem = self.attn(x_emb)
